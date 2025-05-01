@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বইনামা</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-effect"></div>
+    <div class="container">
+        <header>
+            <h1>বইনামা</h1>
+            <div class="tagline">আপনার বইয়ের সংগ্রহ</div>
+            
+            <div class="author-filter">
+                <select id="authorDropdown">
+                    <option value="">সকল লেখক</option>
+                </select>
+            </div>
+
+            <div class="search-container">
+                <div class="search-icon">🔍</div>
+                <input type="text" class="search-box" id="searchInput" placeholder="বইয়ের নাম লিখুন...">
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box read">
+                    <span class="stat-icon">📖</span>
+                    <span class="stat-text">পঠিত: <span id="readCount">0</span></span>
+                </div>
+                <div class="stat-box unread">
+                    <span class="stat-icon">📚</span>
+                    <span class="stat-text">অপঠিত: <span id="unreadCount">0</span></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="read">
+                <span class="tab-icon">✅</span>
+                <span>পঠিত বই</span>
+            </button>
+            <button class="tab-btn unread" data-tab="unread">
+                <span class="tab-icon">⌛</span>
+                <span>অপঠিত বই</span>
+            </button>
+        </div>
+
+        <div id="read" class="tab-content active"></div>
+        <div id="unread" class="tab-content unread-section"></div>
+
+        <footer>
+            <a href="games/index.html" target="_blank" class="demo-btn">
+                <span class="btn-icon">📚</span>
+                <span>developer</span>
+            </a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

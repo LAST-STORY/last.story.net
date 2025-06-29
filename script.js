@@ -78,21 +78,35 @@ function generateBookList(tabId, bookData) {
     let html = '';
     
     bookData.forEach(author => {
-        let booksHTML = '';
+        // গ্রুপ books by genre
+        const genreMap = {};
         author.books.forEach(book => {
-            booksHTML += `
-                <div class="book-card" data-title="${book.title.toLowerCase()}" data-author="${author.author}">
-                    <div class="book-title">${book.title}</div>
-                    <div class="book-author">${author.author}</div>
-                    <div class="book-genre">${book.genre}</div>
+            if (!genreMap[book.genre]) genreMap[book.genre] = [];
+            genreMap[book.genre].push(book);
+        });
+        let genresHTML = '';
+        Object.entries(genreMap).forEach(([genre, books]) => {
+            let booksHTML = '';
+            books.forEach((book, idx) => {
+                booksHTML += `
+                    <div class="book-card" data-title="${book.title.toLowerCase()}" data-author="${author.author}" data-genre="${genre}">
+                        <div class="book-title">${idx + 1}. ${book.title}</div>
+                        <div class="book-author">${author.author}</div>
+                        <div class="book-genre">${genre}</div>
+                    </div>
+                `;
+            });
+            genresHTML += `
+                <div class="genre-section" data-genre="${genre}">
+                    <h3 class="genre-name">${genre}</h3>
+                    <div class="book-list">${booksHTML}</div>
                 </div>
             `;
         });
-        
         html += `
             <div class="author-section" data-author="${author.author}">
                 <h2 class="author-name">${author.author}</h2>
-                <div class="book-list">${booksHTML}</div>
+                ${genresHTML}
             </div>
         `;
     });

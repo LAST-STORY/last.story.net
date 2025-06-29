@@ -277,7 +277,7 @@ h1, .header-title {
 
 .book-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
 }
 
@@ -724,7 +724,7 @@ h1, .header-title {
 
 @media (min-width: 1024px) {
     .book-list {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
@@ -848,4 +848,15 @@ h1, .header-title {
     color: #181a1b !important;
     border-color: var(--neon-pink) !important;
     box-shadow: 0 0 32px 8px var(--neon-cyan), 0 0 16px 2px var(--neon-pink) !important;
+}
+
+.genre-section {
+    margin-bottom: 1.5rem;
+}
+.genre-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+    letter-spacing: 1px;
 }

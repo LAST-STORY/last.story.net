@@ -7,43 +7,6 @@ const unreadCountEl = document.getElementById('unreadCount');
 const searchInput = document.getElementById('searchInput');
 const authorDropdown = document.getElementById('authorDropdown');
 
-// ডার্ক/লাইট মোড টগল লজিক
-const lampStringLight = document.getElementById('lampStringLight');
-const lampStringDark = document.getElementById('lampStringDark');
-const lampShade = document.querySelector('.lamp-shade');
-const body = document.body;
-
-function setMode(mode) {
-    if (mode === 'dark') {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-        lampStringDark.classList.add('active');
-        lampStringLight.classList.remove('active');
-    } else {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-        lampStringLight.classList.add('active');
-        lampStringDark.classList.remove('active');
-    }
-    // glow/shade animation
-    lampShade.classList.add('lamp-animate');
-    setTimeout(() => lampShade.classList.remove('lamp-animate'), 400);
-}
-
-function pullString(e) {
-    e.target.classList.add('pull');
-    setTimeout(() => e.target.classList.remove('pull'), 400);
-}
-lampStringLight.addEventListener('click', e => { pullString(e); setMode('light'); });
-lampStringDark.addEventListener('click', e => { pullString(e); setMode('dark'); });
-
-// পেজ লোডে ইউজারের পছন্দ অনুযায়ী থিম সেট
-(function () {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') setMode('dark');
-    else setMode('light');
-})();
-
 function setupAuthorDropdown() {
     const allAuthors = new Set();
     
@@ -78,6 +41,8 @@ function generateBookList(tabId, bookData) {
     let html = '';
     
     bookData.forEach(author => {
+        // Count only books in this tab (read or unread)
+        const tabBooks = author.books.length;
         // গ্রুপ books by genre
         const genreMap = {};
         author.books.forEach(book => {
@@ -105,7 +70,7 @@ function generateBookList(tabId, bookData) {
         });
         html += `
             <div class="author-section" data-author="${author.author}">
-                <h2 class="author-name">${author.author}</h2>
+                <h2 class="author-name">${author.author} <span class="author-book-count">(${tabBooks}টি বই)</span></h2>
                 ${genresHTML}
             </div>
         `;

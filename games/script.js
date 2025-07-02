@@ -97,7 +97,7 @@ const preload = () => {
   
           this.data = {
   
-              text: 'MD.SAIDUR RAHMAN',
+              text: 'LAST STORY',
               amount: 1500,
               particleSize: 1,
               particleColor: 0xffffff,

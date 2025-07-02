@@ -1,4 +1,4 @@
-const CACHE_NAME = 'storynet-cache-v1';
+const CACHE_NAME = 'storynet-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -7,7 +7,11 @@ const urlsToCache = [
   '/manifest.json',
   '/icon-192.png',
   '/icon-512.png',
-  // Add more assets if needed
+  '/book-list.js',
+  '/games/index.html',
+  '/games/script.js',
+  '/games/style.css',
+  '/games/three.js'
 ];
 
 self.addEventListener('install', event => {

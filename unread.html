@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="bn" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="google-site-verification" content="notranslate">
+    <meta name="theme-color" content="#6b46c1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LAST STORY">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <title>LAST STORY</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body translate="no" class="notranslate">
+    <div class="container notranslate">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="site-title">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                অপঠিত বই
+            </h1>
+            <p class="subtitle">আপনার অপঠিত বইগুলির তালিকা</p>
+        </header>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="genreFilter" class="filter-label">
+                        <i class="fas fa-tags"></i>
+                        ধরন নির্বাচন করুন
+                    </label>
+                    <select id="genreFilter" class="filter-select">
+                        <option value="">সব ধরন</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="authorFilter" class="filter-label">
+                        <i class="fas fa-user-edit"></i>
+                        লেখক নির্বাচন করুন
+                    </label>
+                    <select id="authorFilter" class="filter-select">
+                        <option value="">সব লেখক</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unread Book List Section -->
+        <section class="book-section">
+            <div class="book-header">
+                <h2 class="section-title">
+                    <i class="fas fa-bookmark"></i>
+                    অপঠিত বইয়ের তালিকা
+                </h2>
+                <div class="book-count">
+                    <span id="unreadBookCount">0</span> টি অপঠিত বই
+                </div>
+            </div>
+
+            <div class="book-grid" id="unreadBookGrid">
+                <!-- Unread books will be dynamically loaded here -->
+            </div>
+
+            <div class="no-books" id="noUnreadBooks" style="display: none;">
+                <i class="fas fa-bookmark"></i>
+                <p>কোন অপঠিত বই নেই</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LAST STORY</h3>
+                    <p>আপনার বইয়ের তালিকা সংরক্ষণ করার ওয়েবসাইট</p>
+                </div>
+                <div class="footer-section">
+                    <a href="../game/index.html" class="developer-btn">
+                        <i class="fas fa-gamepad"></i>
+                        ডেভলপার
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LAST STORY. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="unreadbook.js"></script>
+    <script src="unread-script.js"></script>
+</body>
+</html>

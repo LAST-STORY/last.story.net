@@ -97,7 +97,7 @@ const preload = () => {
   
           this.data = {
   
-              text: '    LAST STORY\nLOST LAST LINE',
+              text: '   LAST STORY\nLOST LAST LINE',
               amount: 1500,
               particleSize: 1,
               particleColor: 0xffffff,
@@ -382,4 +382,5 @@ const preload = () => {
       }
   }
   
+
 
